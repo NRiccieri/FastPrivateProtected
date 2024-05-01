@@ -37,6 +37,16 @@ Arguments:
 - `--send_noise SEND_NOISE`: Noise to add to the gradients.
 - `--scale_gradients SCALE_GRADIENTS`: Gradient scaling factor.
 
+### Running Clients with Docker
+
+Alternatively, to execute the client using Docker, you can use the image `nriccieri/fpp_client:1.0` and pass the following environment variables:
+
+```bash
+docker run -e CLIENT_PORT=<CLIENT_PORT> -e SERVER_URL=<SERVER_URL> -e CLIENT_ID=<CLIENT_ID> -e SEND_NOISE=<SEND_NOISE> -e SCALE_GRADIENTS=<SCALE_GRADIENTS> nriccieri/fpp_client:1.0
+```
+
+Replace `<CLIENT_PORT>`, `<SERVER_URL>`, `<CLIENT_ID>`, `<SEND_NOISE>`, and `<SCALE_GRADIENTS>` with your desired values.
+
 ## Server Execution
 
 To execute the server, run `python __main__.py` with the following options:
@@ -58,13 +68,3 @@ Arguments:
 - `--reputation-recover REPUTATION_RECOVER`: Multiplier of the reputation after a successful round (default=1.2).
 - `--reputation-penalty REPUTATION_PENALTY`: Multiplier of the reputation after a minor attack (default=0.98).
 - `--recover-threshold RECOVER_THRESHOLD`: Threshold tolerance (default=1.15).
-
-## Running Clients with Docker
-
-Alternatively, to execute the client using Docker, you can use the image `nriccieri/fpp_client:1.0` and pass the following environment variables:
-
-```bash
-docker run -e CLIENT_PORT=<CLIENT_PORT> -e SERVER_URL=<SERVER_URL> -e CLIENT_ID=<CLIENT_ID> -e SEND_NOISE=<SEND_NOISE> -e SCALE_GRADIENTS=<SCALE_GRADIENTS> nriccieri/fpp_client:1.0
-```
-
-Replace `<CLIENT_PORT>`, `<SERVER_URL>`, `<CLIENT_ID>`, `<SEND_NOISE>`, and `<SCALE_GRADIENTS>` with your desired values.
